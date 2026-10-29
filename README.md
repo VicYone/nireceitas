@@ -2,7 +2,7 @@
 
 Site de receitas separado por refeição (café da manhã, almoço, lanche, jantar e sobremesas), feito do zero em um dia com HTML, CSS e JavaScript puros. Não tem framework, build nem servidor: abre direto no navegador.
 
-**Ver no ar:** `https://vicyone.github.io/nireceitas/` *(disponível depois de ativar o GitHub Pages)*
+**Ver no ar:** https://vicyone.github.io/nireceitas/
 
 ![Página inicial do Nireceitas](docs/inicio.png)
 
