@@ -1,0 +1,232 @@
+/* Paleta e moldes baseados em TudoGostoso, Receitas Nestlé, Panelinha e Allrecipes:
+   laranja de ação, fundo creme, texto azul-tinta, botões em pílula e títulos de seção em caixa alta. */
+:root {
+  --laranja: #f2622e;
+  --laranja-escuro: #d24a18;
+  --laranja-claro: #fff0e8;
+  --creme: #fef7ee;
+  --tinta: #1b2238;
+  --texto: #3c3c3c;
+  --suave: #6b6b6b;
+  --linha: #ece3d8;
+  --branco: #ffffff;
+  --verde-wa: #25d366;
+  --verde-wa-escuro: #128c4b;
+  --raio: 14px;
+  --sombra: 0 2px 10px rgba(27, 34, 56, .08);
+  --sombra-forte: 0 10px 28px rgba(27, 34, 56, .14);
+  --largura: 1200px;
+  --titulo: 'Fraunces', Georgia, serif;
+  --corpo: 'Poppins', Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 130px; }
+body { margin: 0; font-family: var(--corpo); color: var(--texto); background: var(--branco); line-height: 1.6; font-size: 16px; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+.container { max-width: var(--largura); margin: 0 auto; padding: 0 16px; }
+
+/* ───── Cabeçalho ───── */
+.topo { position: sticky; top: 0; z-index: 50; background: var(--branco); box-shadow: 0 1px 0 var(--linha); }
+.topo-linha { display: flex; align-items: center; gap: 24px; height: 72px; }
+.logo { display: flex; align-items: center; gap: 8px; font-family: var(--titulo); font-weight: 700; font-size: 26px; color: var(--tinta); letter-spacing: -.5px; white-space: nowrap; }
+.logo-marca { width: 38px; height: 38px; border-radius: 50%; background: var(--laranja); color: #fff; display: grid; place-items: center; font-size: 20px; }
+.logo em { font-style: normal; color: var(--laranja); }
+.busca { flex: 1; display: flex; max-width: 520px; margin-left: auto; }
+.busca input { flex: 1; min-width: 0; border: 2px solid var(--linha); border-right: 0; border-radius: 25px 0 0 25px; padding: 10px 18px; font: inherit; font-size: 15px; outline: none; background: #faf8f5; }
+.busca input:focus { border-color: var(--laranja); background: #fff; }
+.busca button { border: 0; background: var(--laranja); color: #fff; padding: 0 22px; border-radius: 0 25px 25px 0; font-weight: 600; }
+.busca button:hover { background: var(--laranja-escuro); }
+.menu { border-top: 1px solid var(--linha); }
+.menu ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+.menu ul::-webkit-scrollbar { display: none; }
+.menu a { display: block; padding: 12px 14px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .4px; color: var(--tinta); white-space: nowrap; border-bottom: 3px solid transparent; }
+.menu a:hover, .menu a.ativo { color: var(--laranja); border-bottom-color: var(--laranja); }
+
+/* ───── Espaços de anúncio ───── */
+.anuncio { display: grid; place-items: center; margin: 28px auto; background: repeating-linear-gradient(45deg, #faf7f3, #faf7f3 10px, #f4efe8 10px, #f4efe8 20px); border: 2px dashed #d9cfc2; border-radius: 8px; color: #a39788; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; text-align: center; max-width: 100%; }
+.anuncio span { display: block; font-size: 11px; letter-spacing: 0; text-transform: none; opacity: .8; }
+.anuncio--topo { width: 970px; height: 90px; }
+.anuncio--faixa { width: 728px; height: 90px; }
+.anuncio--retangulo { width: 300px; height: 250px; }
+.anuncio--lateral { width: 300px; height: 600px; margin: 0; }
+.anuncio--rodape { width: 970px; height: 250px; }
+
+/* ───── Destaque (hero) ───── */
+.destaque { background: var(--creme); padding: 36px 0 44px; }
+.destaque-grade { display: grid; grid-template-columns: 1.6fr 1fr; gap: 20px; }
+.destaque-principal { position: relative; border-radius: var(--raio); overflow: hidden; min-height: 420px; color: #fff; display: flex; align-items: flex-end; box-shadow: var(--sombra-forte); }
+.destaque-principal img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+.destaque-principal:hover img { transform: scale(1.03); }
+.destaque-principal::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(15, 18, 30, .85) 0%, rgba(15, 18, 30, .1) 60%); }
+.destaque-texto { position: relative; z-index: 1; padding: 28px; }
+.selo { display: inline-block; background: var(--laranja); color: #fff; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; padding: 4px 12px; border-radius: 25px; }
+.destaque-texto h1 { font-family: var(--titulo); font-size: 40px; line-height: 1.1; margin: 12px 0 8px; }
+.destaque-texto p { margin: 0 0 14px; max-width: 520px; opacity: .92; }
+.destaque-texto .meta { color: #fff; font-size: 14px; }
+.destaque-lado { display: grid; gap: 20px; }
+.mini { display: grid; grid-template-columns: 130px 1fr; gap: 14px; align-items: center; background: #fff; border-radius: var(--raio); overflow: hidden; box-shadow: var(--sombra); transition: box-shadow .2s, transform .2s; }
+.mini:hover { box-shadow: var(--sombra-forte); transform: translateY(-2px); }
+.mini img { width: 130px; height: 100%; min-height: 120px; object-fit: cover; }
+.mini h3 { font-size: 16px; line-height: 1.3; margin: 4px 12px 6px 0; color: var(--tinta); }
+.mini .meta { padding-right: 12px; }
+
+/* ───── Atalhos de refeição ───── */
+.atalhos { padding: 36px 0 8px; text-align: center; }
+.atalhos h2 { margin-bottom: 20px; }
+.atalhos-lista { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; }
+.atalho { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 110px; font-weight: 600; font-size: 14px; color: var(--tinta); }
+.atalho-icone { width: 84px; height: 84px; border-radius: 50%; background: var(--laranja-claro); display: grid; place-items: center; font-size: 36px; transition: background .2s, transform .2s; }
+.atalho:hover .atalho-icone { background: var(--laranja); transform: translateY(-3px); }
+
+/* ───── Seções por refeição ───── */
+.secao { padding: 28px 0; }
+.secao:nth-of-type(even) { background: var(--creme); }
+.titulo-secao { font-size: 22px; font-weight: 700; text-transform: uppercase; letter-spacing: .6px; color: var(--tinta); margin: 0; }
+.titulo-secao::after { content: ''; display: block; width: 48px; height: 4px; background: var(--laranja); border-radius: 4px; margin-top: 8px; }
+.atalhos .titulo-secao::after { margin: 8px auto 0; }
+.secao-cabeca { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+.secao-cabeca p { margin: 6px 0 0; color: var(--suave); font-size: 15px; }
+.icone-secao { margin-right: 6px; }
+.grade { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+
+/* ───── Card de receita ───── */
+.card { background: #fff; border-radius: var(--raio); overflow: hidden; box-shadow: var(--sombra); transition: box-shadow .2s, transform .2s; display: flex; flex-direction: column; }
+.card:hover { box-shadow: var(--sombra-forte); transform: translateY(-3px); }
+.card-foto { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: var(--linha); }
+.card-foto img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+.card:hover .card-foto img { transform: scale(1.05); }
+.card-foto .selo { position: absolute; top: 12px; left: 12px; }
+.card-corpo { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.card h3 { font-size: 16px; line-height: 1.35; margin: 0; color: var(--tinta); }
+.card:hover h3 { color: var(--laranja); }
+.meta { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 13px; color: var(--suave); margin-top: auto; }
+.meta span { display: inline-flex; align-items: center; gap: 4px; }
+
+/* ───── Botões ───── */
+.botao { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 25px; padding: 11px 22px; font-weight: 600; font-size: 14px; background: var(--laranja); color: #fff; transition: background .2s; }
+.botao:hover { background: var(--laranja-escuro); }
+.botao--contorno { background: transparent; color: var(--laranja); border: 2px solid var(--laranja); padding: 9px 20px; }
+.botao--contorno:hover { background: var(--laranja); color: #fff; }
+.botao--wa { background: var(--verde-wa); }
+.botao--wa:hover { background: var(--verde-wa-escuro); }
+.botao svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+/* ───── Faixa WhatsApp ───── */
+.faixa-wa { background: var(--tinta); color: #fff; padding: 40px 0; }
+.faixa-wa .container { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.faixa-wa h2 { font-family: var(--titulo); font-size: 28px; margin: 0 0 4px; }
+.faixa-wa p { margin: 0; opacity: .8; }
+.faixa-wa .botao { font-size: 16px; padding: 14px 28px; }
+
+/* ───── Botão flutuante WhatsApp ───── */
+.wa-flutuante { position: fixed; right: 20px; bottom: 20px; z-index: 90; display: flex; align-items: center; gap: 10px; background: var(--verde-wa); color: #fff; border-radius: 40px; padding: 14px; box-shadow: 0 6px 20px rgba(0, 0, 0, .25); font-weight: 600; transition: transform .2s, background .2s; }
+.wa-flutuante:hover { transform: scale(1.05); background: var(--verde-wa-escuro); }
+.wa-flutuante svg { width: 30px; height: 30px; }
+.wa-flutuante span { max-width: 0; overflow: hidden; white-space: nowrap; transition: max-width .3s, padding .3s; }
+.wa-flutuante:hover span { max-width: 200px; padding-right: 6px; }
+
+/* ───── Rodapé ───── */
+.rodape { background: #12172a; color: #b9bdc9; padding: 44px 0 24px; font-size: 14px; }
+.rodape-grade { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; }
+.rodape .logo { color: #fff; margin-bottom: 10px; }
+.rodape h4 { color: #fff; text-transform: uppercase; font-size: 13px; letter-spacing: .6px; margin: 0 0 12px; }
+.rodape ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.rodape a:hover { color: var(--laranja); }
+.rodape-base { border-top: 1px solid #262c44; margin-top: 32px; padding-top: 18px; font-size: 12px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+/* ───── Busca sem resultado ───── */
+.vazio { text-align: center; padding: 60px 16px; color: var(--suave); display: none; }
+.vazio.visivel { display: block; }
+
+/* ───── Página de receita ───── */
+.trilha { font-size: 13px; color: var(--suave); padding: 18px 0 0; }
+.trilha a { color: var(--laranja); font-weight: 500; }
+.receita-cabeca { padding: 10px 0 0; }
+.receita-cabeca h1 { font-family: var(--titulo); font-size: 42px; line-height: 1.1; color: var(--tinta); margin: 8px 0 12px; }
+.estrelas { display: inline-flex; align-items: center; gap: 2px; }
+.estrelas button { background: none; border: 0; padding: 0 1px; font-size: 22px; line-height: 1; color: #e2d9cc; }
+.estrelas button.cheia { color: #f5a623; }
+.avaliar { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--suave); flex-wrap: wrap; }
+.ficha { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--linha); border-radius: var(--raio); margin: 20px 0; background: #fff; }
+.ficha div { padding: 14px 10px; text-align: center; border-right: 1px solid var(--linha); }
+.ficha div:last-child { border-right: 0; }
+.ficha small { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .6px; color: var(--suave); }
+.ficha strong { color: var(--tinta); font-size: 16px; }
+.acoes { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
+.receita-foto { border-radius: var(--raio); overflow: hidden; aspect-ratio: 16 / 9; background: var(--linha); }
+.receita-foto img { width: 100%; height: 100%; object-fit: cover; }
+.receita-intro { font-size: 17px; margin: 20px 0 0; }
+.receita-grade { display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: start; padding-bottom: 20px; }
+.receita-lado { position: sticky; top: 130px; display: grid; gap: 24px; }
+.bloco { margin: 32px 0; }
+.bloco h2 { font-size: 22px; text-transform: uppercase; letter-spacing: .5px; color: var(--tinta); margin: 0 0 14px; display: flex; align-items: center; gap: 10px; }
+.bloco h2 small { font-size: 14px; text-transform: none; letter-spacing: 0; color: var(--suave); font-weight: 500; }
+.bloco h3 { font-size: 16px; color: var(--laranja); margin: 18px 0 8px; }
+.ingredientes { list-style: none; margin: 0; padding: 0; }
+.ingredientes li { border-bottom: 1px solid var(--linha); }
+.ingredientes label { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; cursor: pointer; }
+.ingredientes input { appearance: none; width: 22px; height: 22px; border: 2px solid #cfc5b8; border-radius: 50%; flex-shrink: 0; margin: 1px 0 0; cursor: pointer; display: grid; place-items: center; }
+.ingredientes input:checked { background: var(--laranja); border-color: var(--laranja); }
+.ingredientes input:checked::after { content: '✓'; color: #fff; font-size: 13px; font-weight: 700; }
+.ingredientes input:checked + span { text-decoration: line-through; color: #aaa; }
+.utensilios { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
+.utensilios li { background: var(--creme); border: 1px solid var(--linha); border-radius: 25px; padding: 6px 14px; font-size: 14px; }
+.passos { list-style: none; margin: 0; padding: 0; counter-reset: passo; }
+.passos li { counter-increment: passo; display: grid; grid-template-columns: 40px 1fr; gap: 14px; padding: 12px 0; }
+.passos li::before { content: counter(passo); width: 36px; height: 36px; border-radius: 50%; background: var(--laranja); color: #fff; font-weight: 700; display: grid; place-items: center; }
+.dicas { background: var(--laranja-claro); border-left: 4px solid var(--laranja); border-radius: 0 var(--raio) var(--raio) 0; padding: 18px 22px; }
+.dicas h2 { margin-bottom: 8px; }
+.dicas ul { margin: 0; padding-left: 20px; }
+.faq details { border: 1px solid var(--linha); border-radius: 10px; margin-bottom: 10px; background: #fff; }
+.faq summary { padding: 14px 18px; font-weight: 600; color: var(--tinta); cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+.faq summary::after { content: '+'; color: var(--laranja); font-size: 20px; line-height: 1; }
+.faq details[open] summary::after { content: '−'; }
+.faq details p { margin: 0; padding: 0 18px 14px; }
+.lado-lista h3 { font-size: 15px; text-transform: uppercase; letter-spacing: .5px; color: var(--tinta); margin: 0 0 12px; }
+.lado-lista .mini { grid-template-columns: 90px 1fr; margin-bottom: 12px; box-shadow: none; border: 1px solid var(--linha); }
+.lado-lista .mini img { width: 90px; min-height: 80px; }
+.lado-lista .mini h3 { font-size: 14px; text-transform: none; letter-spacing: 0; margin: 0 8px 0 0; }
+
+/* ───── Responsivo ───── */
+@media (max-width: 1024px) {
+  .grade { grid-template-columns: repeat(2, 1fr); }
+  .receita-grade { grid-template-columns: 1fr; }
+  .receita-lado { position: static; }
+  .anuncio--lateral { width: 300px; height: 250px; margin: 0 auto; }
+  .anuncio--topo, .anuncio--rodape { width: 728px; height: 90px; }
+}
+@media (max-width: 760px) {
+  .topo-linha { height: auto; flex-wrap: wrap; gap: 10px; padding: 10px 0; }
+  .busca { order: 3; flex-basis: 100%; max-width: none; }
+  .logo { font-size: 22px; }
+  .destaque-grade { grid-template-columns: 1fr; }
+  .destaque-principal { min-height: 340px; }
+  .destaque-texto h1 { font-size: 28px; }
+  .anuncio--topo, .anuncio--faixa, .anuncio--rodape { width: 320px; height: 100px; }
+  .grade { gap: 14px; }
+  .card h3 { font-size: 14px; }
+  .card-corpo { padding: 10px 12px 12px; }
+  .meta { font-size: 12px; gap: 2px 8px; }
+  .secao-cabeca .botao { display: none; }
+  .receita-cabeca h1 { font-size: 30px; }
+  .ficha { grid-template-columns: repeat(2, 1fr); }
+  .ficha div:nth-child(2) { border-right: 0; }
+  .ficha div:nth-child(-n+2) { border-bottom: 1px solid var(--linha); }
+  .rodape-grade { grid-template-columns: 1fr; }
+  .wa-flutuante { right: 14px; bottom: 14px; padding: 12px; }
+  .faixa-wa h2 { font-size: 22px; }
+}
+@media (max-width: 420px) {
+  .grade { grid-template-columns: 1fr 1fr; }
+  .atalho { width: 80px; font-size: 12px; }
+  .atalho-icone { width: 64px; height: 64px; font-size: 28px; }
+}
+
+@media print {
+  .topo, .anuncio, .wa-flutuante, .acoes, .receita-lado, .rodape, .faixa-wa, .veja-tambem, .avaliar { display: none !important; }
+  .receita-grade { grid-template-columns: 1fr; }
+  .receita-foto { max-height: 260px; }
+}
